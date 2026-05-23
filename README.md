@@ -58,8 +58,6 @@ SPICE is evaluated on five tabular binary classification datasets.
 | HELOC | 10,459 | 23 | FICO Explainable Machine Learning Challenge |
 | GMC | 150,000 | 10 | Give Me Some Credit / CARLA |
 
-Dataset-specific preprocessing scripts are provided under `preprocess_dataset/`.
-
 ---
 
 ## Requirements
