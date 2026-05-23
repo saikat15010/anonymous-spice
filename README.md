@@ -24,17 +24,17 @@ SPICE is a model-agnostic framework for generating sparse, proximate, and plausi
 ```text
 anonymous-spice/
 ├── preprocess_dataset/
-│   ├── adult_income/                 # Preprocessing scripts for Adult Income
-│   ├── gmc/                          # Preprocessing scripts for GMC
-│   ├── graduate_admission/           # Preprocessing scripts for Graduate Admission
-│   ├── heloc/                        # Preprocessing scripts for HELOC
-│   └── student_performance/          # Preprocessing scripts for Student Performance
+│   ├── adult_income/
+│   ├── gmc/
+│   ├── graduate_admission/
+│   ├── heloc/
+│   └── student_performance/
 │
 ├── src_code/
 │   ├── baseline/                     # Baseline implementations
-│   ├── spice_code/                   # Core SPICE implementation
+│   ├── spice_code/                   # Main SPICE implementation
 │   ├── spice_code_individual_instance/
-│   │                                  # Per-dataset SPICE scripts with feature-importance methods
+│   │                                  # Individual-query SPICE scripts with feature-importance methods
 │   ├── spice_rho_experiment/         # ANN approximation factor experiment
 │   ├── spice_tradeoff_experiment/    # Lambda trade-off sensitivity experiment
 │   ├── spice_validity_experiment/    # Validity and NUN improvement experiment
@@ -87,20 +87,32 @@ If `requirements.txt` is not available, install the listed packages manually acc
 
 ## Running SPICE
 
-Each dataset has its own script under:
+The main SPICE implementation is available under:
+
+```text
+src_code/spice_code/
+```
+
+To run the main SPICE implementation, use the corresponding script in this directory.
+
+Example:
+
+```bash
+cd src_code/spice_code
+python <main_script>.py
+```
+
+Replace `<main_script>` with the script for the target dataset or experiment.
+
+The generated results are saved as a `.csv` file in the corresponding directory.
+
+The directory below contains individual-query SPICE scripts with feature-importance methods:
 
 ```text
 src_code/spice_code_individual_instance/
 ```
 
-For example, to run SPICE on the Graduate Admission dataset:
-
-```bash
-cd src_code/spice_code_individual_instance/graduate_admission
-python SPICE_GraduateAdmission.py
-```
-
-The generated results are saved as a `.csv` file in the corresponding directory.
+These scripts are used for per-dataset or individual-instance analysis where feature-importance scores are computed and used to guide substitution and perturbation.
 
 ---
 
@@ -143,7 +155,8 @@ python NICE_GraduateAdmission.py
 
 | Experiment | Script Location |
 |---|---|
-| Main SPICE results | `src_code/spice_code_individual_instance/` |
+| Main SPICE implementation | `src_code/spice_code/` |
+| Individual-instance SPICE analysis with feature importance | `src_code/spice_code_individual_instance/` |
 | Baseline comparison | `src_code/baseline/` |
 | Weighted vs. unweighted NUN ablation | `src_code/spice_weighted_unweighted_experiment/` |
 | Feature-importance sensitivity analysis | `src_code/spice_code_individual_instance/` |
