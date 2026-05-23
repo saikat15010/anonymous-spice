@@ -70,7 +70,6 @@ scikit-learn >= 1.3.2
 scipy >= 1.11.0
 shap >= 0.44.0
 joblib >= 1.3.0
-falconn
 ```
 
 Install dependencies with:
