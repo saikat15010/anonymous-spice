@@ -101,8 +101,6 @@ python <main_script>.py
 
 Replace `<main_script>` with the script for the target dataset or experiment.
 
-The generated results are saved as a `.csv` file in the corresponding directory.
-
 The directory below contains individual-query SPICE scripts with feature-importance methods:
 
 ```text
